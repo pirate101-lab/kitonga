@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Service directory — KITONGA-ICT</title>
+<meta name="description" content="All 61 KITONGA-ICT services with prices and turnaround. Order any service on WhatsApp.">
+<meta name="theme-color" content="#f4f5f7">
+<meta property="og:title" content="KITONGA-ICT">
+<meta property="og:description" content="Digital services & print, done today.">
+<meta property="og:image" content="/static/images/portfolio/tee-peel.jpg">
+<link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css" rel="stylesheet">
+<link href="/static/css/site.css" rel="stylesheet">
+</head>
+<body>
+
+<!--HEADER-->
+<header class="site-header" id="site-header">
+  <div class="wrap">
+    <div class="bar">
+      <a class="brand" href="/" aria-label="KITONGA-ICT home">
+        <img src="/static/brand/mark.svg" alt="" width="38" height="38">
+        <span>KITONGA</span><span class="tag">ICT</span>
+      </a>
+      <ul class="nav" id="nav">
+        <li id="nav-services">
+          <button type="button" aria-expanded="false" aria-controls="mega">Services <i class="fas fa-chevron-down"></i></button>
+          <div class="mega" id="mega" role="menu"></div>
+        </li>
+        <li><a href="/#studio">Print &amp; Apparel</a></li>
+        <li><a href="/portfolio">Work</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+      <div class="head-actions">
+        <a class="btn btn-dark btn-sm" href="#" data-wa-general><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="mnav" id="mnav" aria-label="Mobile">
+  <div class="top">
+    <a class="brand" href="/"><img src="/static/brand/mark.svg" alt="" width="38" height="38"><span>KITONGA</span><span class="tag">ICT</span></a>
+    <button class="nav-toggle" id="nav-close" type="button" aria-label="Close menu"><i class="fas fa-xmark"></i></button>
+  </div>
+  <div class="list">
+    <a href="/services">All services <i class="fas fa-arrow-right"></i></a>
+    <a href="/#studio">Print &amp; Apparel <i class="fas fa-arrow-right"></i></a>
+    <a href="/portfolio">Work <i class="fas fa-arrow-right"></i></a>
+    <a href="/#contact">Contact <i class="fas fa-arrow-right"></i></a>
+  </div>
+  <div class="cats" id="mnav-cats"></div>
+  <div class="foot">
+    <a class="btn btn-wa btn-lg" href="#" data-wa-general><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+    <a class="btn btn-ghost" href="#" data-tel><i class="fas fa-phone"></i> <span data-k="phoneDisplay"></span></a>
+  </div>
+</nav>
+<!--/HEADER-->
+
+<main id="main">
+  <section class="wrap">
+    <div class="page-head rv">
+      <span class="eyebrow">Directory</span>
+      <h1 class="h-lg">Every service. Every price.</h1>
+      <p class="lead">Pick a division or search. Tap the WhatsApp button on any row to order.</p>
+    </div>
+    <div class="dir">
+      <div class="dir-rail" id="dir-rail" role="tablist" aria-label="Divisions"></div>
+      <div>
+        <label class="dir-search"><i class="fas fa-magnifying-glass"></i><input id="dir-search" type="search" placeholder="Search services — e.g. KRA, CV, t-shirt" autocomplete="off"></label>
+        <p class="dir-meta" id="dir-meta"></p>
+        <div id="dir-body"></div>
+      </div>
+    </div>
+  </section>
+  <section class="section" style="padding-top:3rem">
+    <div class="wrap">
+      <div class="cta rv"><div class="cta-grid">
+        <div><h2 class="h-lg">Can't find it?</h2><p class="lead" style="margin-top:1rem">If it lives on a portal or comes off a printer, we probably do it. Ask.</p></div>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;justify-content:flex-end"><a class="btn btn-dark btn-lg" href="#" data-wa-general><i class="fab fa-whatsapp"></i> Ask on WhatsApp</a></div>
+      </div></div>
+    </div>
+  </section>
+</main>
+
+<!--FOOTER-->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="brand-col">
+        <a class="brand" href="/"><img src="/static/brand/mark.svg" alt="" width="38" height="38"><span>KITONGA</span><span class="tag">ICT</span></a>
+        <p data-k="tagline"></p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <div class="links" id="foot-cats"></div>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <div class="links">
+          <a href="/services">Full directory</a>
+          <a href="/portfolio">Work</a>
+          <a href="/#studio">Print &amp; Apparel</a>
+          <a href="/#contact">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h4>Reach us</h4>
+        <div class="links">
+          <a href="#" data-tel data-k="phoneDisplay"></a>
+          <a href="#" data-mail data-k="email"></a>
+          <a data-k="hours"></a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span data-year></span> KITONGA-ICT · Print partner: <span data-k="printPartner"></span></span>
+      <div class="socials">
+        <a href="#" data-social="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" data-social="tiktok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="#" data-social="facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-fab" href="#" data-wa-general aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<!--/FOOTER-->
+<script src="/static/js/data.js"></script>
+<script src="/static/js/main.js"></script>
+</body>
+</html>
