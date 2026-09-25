@@ -7,9 +7,111 @@
   const catBy = (slug) => CATEGORIES.find((c) => c.slug === slug);
   const svcIn = (slug) => SERVICES.filter((s) => s.cat === slug);
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isPhoto = (c) => Boolean(c && c.logo && /\.(jpg|jpeg|webp)$/i.test(c.logo));
+
+  /* Helper to render real colored logo with FontAwesome fallback */
+  function catIcon(c, extraCls = '') {
+    if (c.logo) {
+      const cls = ['cat-logo', isPhoto(c) ? 'cat-photo' : '', extraCls].filter(Boolean).join(' ');
+      return `<img class="${cls}" src="${ASSET}logos/${c.logo}" alt="${esc(c.label || '')}" loading="lazy">`;
+    }
+    return `<i class="fas ${c.icon} ${extraCls}"></i>`;
+  }
+
+  /* Live operating status (Africa/Nairobi) */
+  function updateNairobiStatus() {
+    const el = document.querySelector('[data-status]');
+    if (!el) return;
+    try {
+      const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Africa/Nairobi',
+        weekday: 'short',
+        hour: 'numeric',
+        minute: 'numeric',
+        hourCycle: 'h23'
+      }).formatToParts(new Date());
+      const get = (type) => parts.find((p) => p.type === type)?.value;
+      const dayIdx = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(get('weekday'));
+      const mins = (+get('hour') || 0) * 60 + (+get('minute') || 0);
+
+      const openDays = [1, 2, 3, 4, 5, 6]; // Mon - Sat
+      const openMin = 7 * 60 + 30; // 07:30
+      const closeMin = 19 * 60; // 19:00
+
+      const isOpenDay = openDays.includes(dayIdx);
+      const isOpen = isOpenDay && mins >= openMin && mins < closeMin;
+
+      let text = 'Mon – Sat · 7:30 – 19:00';
+      if (isOpen) {
+        const left = closeMin - mins;
+        text = left <= 60 ? `Open now · closes in ${left} min` : 'Open now · until 19:00';
+      } else if (isOpenDay && mins < openMin) {
+        text = 'Closed · opens today at 7:30';
+      } else {
+        text = openDays.includes((dayIdx + 1) % 7) ? 'Closed · opens tomorrow at 7:30' : 'Closed · opens Monday at 7:30';
+      }
+
+      el.classList.toggle('is-open', isOpen);
+      el.classList.toggle('is-closed', !isOpen);
+      const textEl = el.querySelector('[data-status-text]');
+      if (textEl) textEl.textContent = text;
+    } catch (e) {}
+  }
+
+  /* Theme toggle (Dark / Light mode) */
+  function initTheme() {
+    function apply(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('kitonga_theme', theme); } catch (e) {}
+      document.querySelectorAll('.theme-toggle').forEach((btn) => {
+        btn.innerHTML = theme === 'dark'
+          ? '<i class="fas fa-sun" style="color:var(--lime)" title="Switch to light mode"></i>'
+          : '<i class="fas fa-moon" title="Switch to dark mode"></i>';
+        btn.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+      });
+    }
+
+    const saved = (() => { try { return localStorage.getItem('kitonga_theme'); } catch (e) { return null; } })();
+    const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initial = saved || (systemPrefersDark ? 'dark' : 'light');
+    apply(initial);
+
+    document.querySelectorAll('.theme-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme') || 'light';
+        apply(cur === 'dark' ? 'light' : 'dark');
+      });
+    });
+  }
+
+  /* Floating WhatsApp button & mobile bar visibility */
+  function initFloating() {
+    const bar = document.querySelector('[data-mobile-bar]');
+    const contact = document.querySelector('#contact');
+    const footer = document.querySelector('.site-footer');
+
+    // On mobile, hide sticky bottom bar over contact/footer so form buttons remain unblocked
+    if (bar && window.IntersectionObserver) {
+      const hideZones = new Set();
+      const zoneObserver = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) hideZones.add(e.target);
+          else hideZones.delete(e.target);
+        });
+        bar.classList.toggle('is-hidden', hideZones.size > 0);
+      }, { threshold: 0.15 });
+
+      [contact, footer].filter(Boolean).forEach((el) => zoneObserver.observe(el));
+    }
+  }
 
   /* ---------- shared chrome ---------- */
   function initChrome() {
+    initTheme();
+    updateNairobiStatus();
+    setInterval(updateNairobiStatus, 60000);
+    initFloating();
+
     // text bindings
     $$('[data-k]').forEach((el) => { const v = KITONGA[el.dataset.k]; if (v != null) el.textContent = v; });
     $$('[data-year]').forEach((el) => (el.textContent = new Date().getFullYear()));
@@ -24,7 +126,7 @@
     if (mega) {
       mega.innerHTML = CATEGORIES.map((c) => `
         <a href="/services#${c.slug}" role="menuitem">
-          <span class="ic" style="background:${c.tint}"><i class="fas ${c.icon}"></i></span>
+          <span class="ic ${isPhoto(c) ? 'has-photo' : ''}" style="background:${c.tint}">${catIcon(c)}</span>
           <span>${esc(c.label)}<small>${esc(c.summary)}</small></span>
         </a>`).join('');
       const li = $('#nav-services'), btn = $('button', li);
@@ -41,7 +143,7 @@
     const mnav = $('#mnav'), tog = $('#nav-toggle'), cls = $('#nav-close');
     if (mnav) {
       const cats = $('#mnav-cats');
-      if (cats) cats.innerHTML = CATEGORIES.map((c) => `<a href="/services#${c.slug}" style="background:${c.tint}"><i class="fas ${c.icon}"></i>${esc(c.label)}</a>`).join('');
+      if (cats) cats.innerHTML = CATEGORIES.map((c) => `<a href="/services#${c.slug}" style="background:${c.tint}"><span class="mnav-ic ${isPhoto(c) ? 'has-photo' : ''}">${catIcon(c)}</span>${esc(c.label)}</a>`).join('');
       const set = (v) => { mnav.classList.toggle('open', v); document.body.classList.toggle('locked', v); tog.setAttribute('aria-expanded', v); };
       tog.addEventListener('click', () => set(true));
       cls.addEventListener('click', () => set(false));
@@ -89,9 +191,18 @@
 
   /* ---------- service row ---------- */
   function svcRow(s) {
+    const cat = catBy(s.cat);
+    const thumb = s.logo
+      ? `<img class="svc-thumb logo" src="${ASSET}logos/${s.logo}" alt="" loading="lazy">`
+      : (s.img ? `<img class="svc-thumb photo" src="${ASSET}portfolio/${s.img}" alt="" loading="lazy">` : (cat ? catIcon(cat) : ''));
+
     return `
       <div class="svc">
-        <div><div class="n">${esc(s.name)}</div><div class="d">${esc(s.desc)}</div></div>
+        ${thumb ? `<div class="svc-media">${thumb}</div>` : ''}
+        <div class="svc-body">
+          <div class="n">${esc(s.name)}</div>
+          <div class="d">${esc(s.desc)}</div>
+        </div>
         <div class="meta">
           <span class="turn">${esc(s.turn)}</span>
           <span class="price">${kshFmt(s.price)}${s.unit ? `<small>${esc(s.unit)}</small>` : ''}</span>
@@ -114,10 +225,12 @@
       });
     });
 
-    // marquee
+    // marquee with official partner & statutory portal logos
     const logos = [
       ['eCitizen', 'ecitizen.png'], ['KRA iTax', 'kra.png'], ['HELB', 'helb.png'], ['NTSA TIMS', 'ntsa.png'],
-      ['SHA', 'sha.svg'], ['NSSF', 'nssf.png'], ['TSC', 'tsc.png'], ['KUCCPS', 'kuccps.png']
+      ['SHA', 'sha.svg'], ['NSSF', 'nssf.png'], ['TSC', 'tsc.png'], ['KUCCPS', 'kuccps.png'],
+      ['BRS', 'brs-seal.svg'], ['DCI', 'dci.png'], ['KMTC', 'kmtc.png'], ['KNEC', 'knec.png'],
+      ['PSC', 'psc.png'], ['VFS Global', 'vfs-global.svg'], ['Kenya eTA', 'kenya-eta.png']
     ];
     const m = $('#marquee');
     const items = logos.map(([n, f]) => `<span class="logo"><img src="${ASSET}logos/${f}" alt="" loading="lazy">${n}</span>`).join('');
@@ -127,9 +240,16 @@
     const grid = $('#cats');
     grid.innerHTML = CATEGORIES.map((c) => `
       <button class="cat" type="button" data-cat="${c.slug}" aria-expanded="false" aria-controls="panel" style="--tint:${c.tint}">
-        <span class="ic"><i class="fas ${c.icon}"></i></span>
-        <span class="cnt">${svcIn(c.slug).length}</span>
-        <span><h3>${esc(c.label)}</h3><p>${esc(c.summary)}</p></span>
+        <div class="cat-main">
+          <span class="ic ${isPhoto(c) ? 'has-photo' : ''}">${catIcon(c)}</span>
+          <div class="cat-info">
+            <div class="cat-title-row">
+              <h3>${esc(c.label)}</h3>
+              <span class="cnt">${svcIn(c.slug).length}</span>
+            </div>
+            <p>${esc(c.summary)}</p>
+          </div>
+        </div>
         <span class="go">Open <i class="fas fa-arrow-right"></i></span>
       </button>`).join('') + `<div class="panel" id="panel" role="region" aria-live="polite"></div>`;
 
@@ -148,11 +268,16 @@
       panel.innerHTML = `
         <div class="panel-inner">
           <div class="panel-side">
-            <span class="ic" style="background:${c.tint}"><i class="fas ${c.icon}"></i></span>
-            <h3>${esc(c.name)}</h3>
+            <div class="panel-side-head">
+              <span class="ic ${isPhoto(c) ? 'has-photo' : ''}" style="background:${c.tint}">${catIcon(c)}</span>
+              <div>
+                <h3>${esc(c.name)}</h3>
+                <small style="color:var(--mute);font-weight:600">${list.length} services</small>
+              </div>
+            </div>
             <p>${esc(c.detail)}</p>
             ${c.portals.length ? `<div class="portals">${c.portals.map((p) => `<span>${esc(p)}</span>`).join('')}</div>` : ''}
-            <a class="btn btn-dark" href="/services#${c.slug}">All ${list.length} services <i class="fas fa-arrow-right"></i></a>
+            <a class="btn btn-dark btn-sm" href="/services#${c.slug}">All ${list.length} services <i class="fas fa-arrow-right"></i></a>
           </div>
           <div class="svc-list">${list.slice(0, 6).map(svcRow).join('')}
             ${list.length > 6 ? `<div class="panel-more"><a class="btn btn-ghost btn-sm" href="/services#${c.slug}">+ ${list.length - 6} more</a></div>` : ''}
@@ -181,39 +306,73 @@
     // open print by default if hash requests it
     if (location.hash === '#print') { const b = $('.cat[data-cat="print"]', grid); if (b) setOpen('print', b); }
 
-    // print chips
-    $('#print-chips').innerHTML = svcIn('print').slice(0, 6).map((s) =>
-      `<a href="${waRequest(s)}" target="_blank" rel="noopener">${esc(s.name)} <b>${kshFmt(s.price)}${s.unit || ''}</b></a>`).join('');
+    // popular list
+    const popList = $('#popular-list');
+    if (popList) {
+      const popular = SERVICES.filter((s) => s.featured).slice(0, 8);
+      popList.innerHTML = popular.map((s) => {
+        const cat = catBy(s.cat);
+        const iconHtml = cat ? `<span class="pop-ic ${isPhoto(cat) ? 'has-photo' : ''}" style="background:${cat.tint}">${catIcon(cat)}</span>` : '';
+        return `
+          <li class="pop">
+            <div class="pop-left">
+              ${iconHtml}
+              <div>
+                <p class="pop-name">${esc(s.name)}</p>
+                <p class="pop-meta"><span>${esc(cat ? cat.label : '')}</span><span> · ${esc(s.turn || 'Same day')}</span></p>
+              </div>
+            </div>
+            <div class="pop-right">
+              <span class="pop-price">${kshFmt(s.price)}${s.unit || ''}</span>
+              <a class="pop-order" href="${waRequest(s)}" target="_blank" rel="noopener" aria-label="Order ${esc(s.name)} on WhatsApp">Order <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </li>`;
+      }).join('');
+    }
+
+    // print chips (if element exists)
+    const printChips = $('#print-chips');
+    if (printChips) {
+      printChips.innerHTML = svcIn('print').slice(0, 6).map((s) =>
+        `<a href="${waRequest(s)}" target="_blank" rel="noopener">${esc(s.name)} <b>${kshFmt(s.price)}${s.unit || ''}</b></a>`).join('');
+    }
 
     // work grid: 6 tiles
-    const picks = [PORTFOLIO[0], PORTFOLIO[2], PORTFOLIO[6], PORTFOLIO[4], PORTFOLIO[10], PORTFOLIO[7]].filter(Boolean);
-    $('#work-grid').innerHTML = picks.map((p, i) => `
-      <a href="/portfolio" class="${i === 0 ? 'tall' : i === 4 ? 'wide' : ''}">
-        <img src="${ASSET}portfolio/${p.img}" alt="${esc(p.title)}" loading="lazy">
-        <span class="cap"><span>${esc(p.title)}</span><i class="fas fa-arrow-up-right-from-square"></i></span>
-      </a>`).join('');
+    const workGrid = $('#work-grid');
+    if (workGrid) {
+      const picks = [PORTFOLIO[0], PORTFOLIO[2], PORTFOLIO[6], PORTFOLIO[4], PORTFOLIO[10], PORTFOLIO[7]].filter(Boolean);
+      workGrid.innerHTML = picks.map((p, i) => `
+        <a href="/portfolio" class="${i === 0 ? 'tall' : i === 4 ? 'wide' : ''}">
+          <img src="${ASSET}portfolio/${p.img}" alt="${esc(p.title)}" loading="lazy">
+          <span class="cap"><span>${esc(p.title)}</span><i class="fas fa-arrow-up-right-from-square"></i></span>
+        </a>`).join('');
+    }
 
     // request form
-    const f = $('#request-form'), cat = $('#rf-cat'), svc = $('#rf-svc'), sum = $('#req-summary');
-    cat.innerHTML = CATEGORIES.map((c) => `<option value="${c.slug}">${esc(c.label)}</option>`).join('');
-    const fill = () => {
-      svc.innerHTML = svcIn(cat.value).map((s) => `<option value="${s.id}">${esc(s.name)} — ${kshFmt(s.price)}${s.unit || ''}</option>`).join('');
-      upd();
-    };
-    const upd = () => {
-      const s = SERVICES.find((x) => x.id === svc.value);
-      sum.innerHTML = s ? `<i class="fas fa-clock"></i> Turnaround: <b>${esc(s.turn)}</b> · <b>${kshFmt(s.price)}${s.unit || ''}</b>` : '';
-    };
-    cat.addEventListener('change', fill); svc.addEventListener('change', upd); fill();
-    f.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const s = SERVICES.find((x) => x.id === svc.value);
-      const name = $('#rf-name').value.trim(), notes = $('#rf-notes').value.trim();
-      let msg = `Hello KITONGA-ICT${name ? ', my name is ' + name : ''}. I would like to request: ${s.name} (${kshFmt(s.price)}${s.unit || ''}).`;
-      if (notes) msg += ` Notes: ${notes}`;
-      msg += ' What documents do you need from me?';
-      window.open(waLink(msg), '_blank', 'noopener');
-    });
+    const f = $('#request-form');
+    if (f) {
+      const cat = $('#rf-cat'), svc = $('#rf-svc'), sum = $('#req-summary');
+      cat.innerHTML = CATEGORIES.map((c) => `<option value="${c.slug}">${esc(c.label)}</option>`).join('');
+      const fill = () => {
+        svc.innerHTML = svcIn(cat.value).map((s) => `<option value="${s.id}">${esc(s.name)} — ${kshFmt(s.price)}${s.unit || ''}</option>`).join('');
+        upd();
+      };
+      const upd = () => {
+        const s = SERVICES.find((x) => x.id === svc.value);
+        sum.innerHTML = s ? `<i class="fas fa-clock"></i> Turnaround: <b>${esc(s.turn)}</b> · <b>${kshFmt(s.price)}${s.unit || ''}</b>` : '';
+      };
+      cat.addEventListener('change', fill); svc.addEventListener('change', upd); fill();
+      f.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const s = SERVICES.find((x) => x.id === svc.value);
+        const name = ($('#rf-name') || {}).value?.trim() || '';
+        const notes = ($('#rf-note') || $('#rf-notes') || {}).value?.trim() || '';
+        let msg = `Hello KITONGA-ICT${name ? ', my name is ' + name : ''}. I would like to request: ${s.name} (${kshFmt(s.price)}${s.unit || ''}).`;
+        if (notes) msg += ` Notes: ${notes}`;
+        msg += ' What documents do you need from me?';
+        window.open(waLink(msg), '_blank', 'noopener');
+      });
+    }
   }
 
   /* ---------- directory page ---------- */
@@ -223,7 +382,7 @@
     const tabs = [{ slug: 'all', label: 'All services', icon: 'fa-grip', tint: '#eef0f4' }, ...CATEGORIES];
     rail.innerHTML = tabs.map((c) => `
       <button class="dir-tab" type="button" role="tab" data-cat="${c.slug}" aria-selected="false" style="--tint:${c.tint}">
-        <i class="fas ${c.icon}"></i>${esc(c.label)}<span class="c">${c.slug === 'all' ? SERVICES.length : svcIn(c.slug).length}</span>
+        <span class="tab-ic ${isPhoto(c) ? 'has-photo' : ''}">${catIcon(c)}</span>${esc(c.label)}<span class="c">${c.slug === 'all' ? SERVICES.length : svcIn(c.slug).length}</span>
       </button>`).join('');
     let cur = 'all';
     function render() {
@@ -235,7 +394,7 @@
         total += list.length;
         if (!list.length) return '';
         return `<section class="dir-group" id="${c.slug}">
-          <h3><i class="fas ${c.icon}" style="background:${c.tint}"></i>${esc(c.name)}</h3>
+          <h3><span class="group-ic ${isPhoto(c) ? 'has-photo' : ''}" style="background:${c.tint}">${catIcon(c)}</span>${esc(c.name)}</h3>
           <div class="svc-list">${list.map(svcRow).join('')}</div>
         </section>`;
       }).join('') || `<p class="dir-meta">No services match "${esc(q)}".</p>`;

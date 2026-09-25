@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="trvGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="24" width="208" height="208" rx="36" fill="url(#trvGrad)"/>
+  <!-- Airplane & Passport Globe Path -->
+  <circle cx="128" cy="128" r="76" fill="none" stroke="#ffffff" stroke-width="5" stroke-dasharray="8,8" opacity="0.6"/>
+  <path d="M128 60 L144 116 L200 128 L144 140 L128 196 L116 148 L68 160 L80 136 L116 128 L80 120 L68 96 L116 108 Z" fill="#c8f560"/>
+</svg>

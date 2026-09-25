@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="desGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#be123c"/>
+      <stop offset="100%" stop-color="#f43f5e"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="24" width="208" height="208" rx="36" fill="url(#desGrad)"/>
+  <!-- Pen Nib & Vector Anchor Points -->
+  <polygon points="128,48 174,136 142,168 128,148 114,168 82,136" fill="#ffffff"/>
+  <polygon points="128,172 136,220 128,216 120,220" fill="#c8f560"/>
+  <circle cx="128" cy="112" r="10" fill="#be123c"/>
+  <line x1="128" y1="112" x2="128" y2="168" stroke="#be123c" stroke-width="4"/>
+  <!-- Anchor points handle -->
+  <circle cx="64" cy="80" r="8" fill="#c8f560"/>
+  <circle cx="192" cy="80" r="8" fill="#c8f560"/>
+  <line x1="64" y1="80" x2="192" y2="80" stroke="#c8f560" stroke-width="3" stroke-dasharray="6,6"/>
+</svg>

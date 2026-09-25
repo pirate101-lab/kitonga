@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="jobGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f766e"/>
+      <stop offset="100%" stop-color="#14b8a6"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="24" width="208" height="208" rx="36" fill="url(#jobGrad)"/>
+  <!-- Executive Briefcase -->
+  <rect x="44" y="88" width="168" height="120" rx="18" fill="#ffffff"/>
+  <path d="M92 88 L92 64 C92 56 100 48 108 48 L148 48 C156 48 164 56 164 64 L164 88" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+  <rect x="44" y="132" width="168" height="16" fill="#0f766e" opacity="0.2"/>
+  <rect x="116" y="124" width="24" height="24" rx="6" fill="#c8f560"/>
+  <path d="M64 164 L192 164" stroke="#0f766e" stroke-width="4" stroke-linecap="round" opacity="0.3"/>
+  <path d="M64 182 L150 182" stroke="#0f766e" stroke-width="4" stroke-linecap="round" opacity="0.3"/>
+</svg>

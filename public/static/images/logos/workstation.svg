@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <rect x="24" y="24" width="208" height="208" rx="32" fill="#047857"/>
+  <!-- Desktop monitor -->
+  <rect x="48" y="54" width="160" height="116" rx="16" fill="#ffffff" stroke="#10b981" stroke-width="4"/>
+  <rect x="60" y="66" width="136" height="92" rx="10" fill="#0f172a"/>
+  <polygon points="116,92 144,112 116,132" fill="#c8f560"/>
+  <!-- Stand -->
+  <rect x="118" y="170" width="20" height="24" fill="#ffffff"/>
+  <rect x="92" y="194" width="72" height="12" rx="6" fill="#ffffff"/>
+</svg>

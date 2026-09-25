@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="domGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0891b2"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <circle cx="128" cy="128" r="104" fill="url(#domGrad)"/>
+  <ellipse cx="128" cy="128" rx="44" ry="104" fill="none" stroke="#ffffff" stroke-width="9"/>
+  <line x1="24" y1="128" x2="232" y2="128" stroke="#ffffff" stroke-width="9"/>
+  <line x1="44" y1="76" x2="212" y2="76" stroke="#ffffff" stroke-width="7" opacity="0.8"/>
+  <line x1="44" y1="180" x2="212" y2="180" stroke="#ffffff" stroke-width="7" opacity="0.8"/>
+  <rect x="72" y="110" width="112" height="36" rx="10" fill="#0f172a" opacity="0.9"/>
+  <text x="128" y="135" font-family="monospace" font-size="20" font-weight="bold" fill="#c8f560" text-anchor="middle">.co.ke</text>
+</svg>

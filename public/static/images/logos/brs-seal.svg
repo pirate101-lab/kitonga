@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="brsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e4b2d"/>
+      <stop offset="100%" stop-color="#1e6b46"/>
+    </linearGradient>
+    <linearGradient id="brsGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="50%" stop-color="#eab308"/>
+      <stop offset="100%" stop-color="#ca8a04"/>
+    </linearGradient>
+  </defs>
+  <!-- Base badge -->
+  <rect x="18" y="18" width="220" height="220" rx="40" fill="url(#brsBg)"/>
+  <rect x="22" y="22" width="212" height="212" rx="36" fill="none" stroke="url(#brsGold)" stroke-width="4" opacity="0.9"/>
+  <!-- Inner circular crest -->
+  <circle cx="128" cy="112" r="66" fill="none" stroke="url(#brsGold)" stroke-width="3" stroke-dasharray="6 4"/>
+  <!-- Scales of Justice (Business & Legal Compliance) -->
+  <rect x="125" y="60" width="6" height="78" rx="3" fill="url(#brsGold)"/>
+  <polygon points="120,138 136,138 144,148 112,148" fill="url(#brsGold)"/>
+  <!-- Crossbeam -->
+  <line x1="82" y1="76" x2="174" y2="76" stroke="url(#brsGold)" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="128" cy="76" r="7" fill="url(#brsGold)"/>
+  <!-- Left Pan -->
+  <line x1="88" y1="78" x2="76" y2="104" stroke="url(#brsGold)" stroke-width="2.5"/>
+  <line x1="88" y1="78" x2="100" y2="104" stroke="url(#brsGold)" stroke-width="2.5"/>
+  <path d="M70 104 Q88 118 106 104 Z" fill="url(#brsGold)"/>
+  <!-- Right Pan -->
+  <line x1="168" y1="78" x2="156" y2="104" stroke="url(#brsGold)" stroke-width="2.5"/>
+  <line x1="168" y1="78" x2="180" y2="104" stroke="url(#brsGold)" stroke-width="2.5"/>
+  <path d="M150 104 Q168 118 186 104 Z" fill="url(#brsGold)"/>
+  <!-- BRS Banner -->
+  <rect x="48" y="164" width="160" height="44" rx="10" fill="url(#brsGold)"/>
+  <text x="128" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="900" fill="#0e4b2d" text-anchor="middle" letter-spacing="3">BRS</text>
+  <text x="128" y="222" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="1.5" opacity="0.95">REGISTRATION</text>
+</svg>

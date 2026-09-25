@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="apBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#854d0e"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="heatGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="50%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+    <linearGradient id="fabricG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Badge -->
+  <rect x="22" y="22" width="212" height="212" rx="40" fill="url(#apBg)"/>
+  <!-- Textile Fabric Swatch Platen -->
+  <rect x="54" y="116" width="148" height="84" rx="16" fill="url(#fabricG)"/>
+  <rect x="54" y="116" width="148" height="84" rx="16" fill="none" stroke="#d97706" stroke-width="3" stroke-dasharray="8 6"/>
+  <!-- Graphic Transfer Design on Fabric (Sharp Lion Shield / Monogram) -->
+  <path d="M128 132 L150 144 L142 168 L128 182 L114 168 L106 144 Z" fill="url(#heatGlow)"/>
+  <polygon points="128,142 140,150 134,166 128,174 122,166 116,150" fill="#ffffff"/>
+  <!-- Upper Heat-Press Heated Platen Head -->
+  <polygon points="64,68 192,68 206,104 50,104" fill="#1e293b"/>
+  <rect x="58" y="100" width="140" height="8" rx="4" fill="url(#heatGlow)"/>
+  <!-- Heat Press Handle & Pressure Lever -->
+  <rect x="122" y="36" width="12" height="36" rx="6" fill="#94a3b8"/>
+  <rect x="92" y="34" width="72" height="12" rx="6" fill="#e2e8f0"/>
+  <!-- Sublimation / Heat transfer shimmer rays -->
+  <line x1="84" y1="108" x2="84" y2="114" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
+  <line x1="128" y1="108" x2="128" y2="114" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
+  <line x1="172" y1="108" x2="172" y2="114" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
+  <!-- Textile Studio Label -->
+  <text x="128" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="800" fill="#fef08a" text-anchor="middle" letter-spacing="2">APPAREL STUDIO</text>
+</svg>

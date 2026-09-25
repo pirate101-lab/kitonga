@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="webGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="limeAcc" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c8f560"/>
+      <stop offset="100%" stop-color="#a3e635"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="36" width="208" height="154" rx="24" fill="url(#webGrad)"/>
+  <rect x="24" y="36" width="208" height="38" rx="24" fill="#1e293b" opacity="0.4"/>
+  <circle cx="48" cy="55" r="5" fill="#ef4444"/>
+  <circle cx="64" cy="55" r="5" fill="#eab308"/>
+  <circle cx="80" cy="55" r="5" fill="#22c55e"/>
+  <rect x="104" y="47" width="112" height="16" rx="8" fill="#ffffff" opacity="0.2"/>
+  <!-- Browser window content: Code symbols < / > and layout blocks -->
+  <path d="M82 108 L54 130 L82 152" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M174 108 L202 130 L174 152" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M140 100 L116 160" fill="none" stroke="url(#limeAcc)" stroke-width="9" stroke-linecap="round"/>
+  <!-- Laptop base -->
+  <path d="M8 196 C8 192 12 190 16 190 L240 190 C244 190 248 192 248 196 L240 216 C238 220 234 222 230 222 L26 222 C22 222 18 220 16 216 Z" fill="#1e293b"/>
+  <rect x="110" y="192" width="36" height="5" rx="2.5" fill="#94a3b8"/>
+</svg>

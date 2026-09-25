@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <rect x="36" y="28" width="184" height="200" rx="16" fill="#0369a1"/>
+  <!-- Booklet spine and pages -->
+  <rect x="56" y="28" width="164" height="200" rx="12" fill="#f8fafc"/>
+  <rect x="48" y="28" width="16" height="200" rx="8" fill="#0284c7"/>
+  <!-- Spine staples -->
+  <rect x="52" y="60" width="8" height="18" rx="4" fill="#ffffff"/>
+  <rect x="52" y="180" width="8" height="18" rx="4" fill="#ffffff"/>
+  <rect x="84" y="68" width="108" height="24" rx="8" fill="#c8f560"/>
+  <rect x="84" y="110" width="108" height="8" rx="4" fill="#94a3b8"/>
+  <rect x="84" y="128" width="108" height="8" rx="4" fill="#94a3b8"/>
+  <rect x="84" y="146" width="70" height="8" rx="4" fill="#94a3b8"/>
+</svg>

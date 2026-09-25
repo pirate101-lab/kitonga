@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <rect x="24" y="24" width="208" height="208" rx="32" fill="#e0e7ff"/>
+  <!-- White photo with camera viewfinder -->
+  <rect x="54" y="44" width="148" height="168" rx="12" fill="#ffffff" stroke="#6366f1" stroke-width="4"/>
+  <circle cx="128" cy="104" r="34" fill="#4f46e5"/>
+  <path d="M84 184 C84 150 172 150 172 184 Z" fill="#4f46e5"/>
+  <!-- Studio flash camera corners -->
+  <path d="M68 60 L80 60" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+  <path d="M68 60 L68 72" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+  <path d="M188 60 L176 60" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+  <path d="M188 60 L188 72" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+</svg>

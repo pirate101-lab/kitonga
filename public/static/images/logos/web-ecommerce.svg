@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="ecomGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="24" width="208" height="208" rx="28" fill="url(#ecomGrad)"/>
+  <path d="M68 84 L92 84 L114 160 L184 160 L202 104 L98 104" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="122" cy="188" r="12" fill="#c8f560"/>
+  <circle cx="176" cy="188" r="12" fill="#c8f560"/>
+  <!-- M-Pesa style coin badge inside cart -->
+  <circle cx="144" cy="124" r="20" fill="#ffffff"/>
+  <text x="144" y="132" font-family="sans-serif" font-size="22" font-weight="bold" fill="#059669" text-anchor="middle">K</text>
+</svg>

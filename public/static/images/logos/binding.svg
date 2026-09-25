@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <rect x="36" y="24" width="184" height="208" rx="20" fill="#475569"/>
+  <rect x="72" y="24" width="148" height="208" rx="16" fill="#ffffff"/>
+  <!-- Plastic spiral spine rings -->
+  <ellipse cx="68" cy="52" rx="16" ry="8" fill="none" stroke="#c8f560" stroke-width="8"/>
+  <ellipse cx="68" cy="88" rx="16" ry="8" fill="none" stroke="#c8f560" stroke-width="8"/>
+  <ellipse cx="68" cy="124" rx="16" ry="8" fill="none" stroke="#c8f560" stroke-width="8"/>
+  <ellipse cx="68" cy="160" rx="16" ry="8" fill="none" stroke="#c8f560" stroke-width="8"/>
+  <ellipse cx="68" cy="196" rx="16" ry="8" fill="none" stroke="#c8f560" stroke-width="8"/>
+  <line x1="104" y1="68" x2="188" y2="68" stroke="#475569" stroke-width="6" stroke-linecap="round"/>
+  <line x1="104" y1="96" x2="188" y2="96" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+  <line x1="104" y1="120" x2="188" y2="120" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+</svg>

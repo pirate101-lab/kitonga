@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <rect x="24" y="24" width="208" height="208" rx="32" fill="#ffffff" stroke="#e2e8f0" stroke-width="4"/>
+  <!-- Google Pin -->
+  <path d="M128 44 C94 44 68 70 68 104 C68 144 128 212 128 212 C128 212 188 144 188 104 C188 70 162 44 128 44 Z" fill="#4285f4"/>
+  <circle cx="128" cy="104" r="26" fill="#ffffff"/>
+  <!-- Four color Google G center -->
+  <text x="128" y="113" font-family="sans-serif" font-size="28" font-weight="bold" fill="#ea4335" text-anchor="middle">G</text>
+  <!-- Verified Badge -->
+  <circle cx="172" cy="72" r="18" fill="#34a853"/>
+  <path d="M164 72 L170 78 L180 66" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

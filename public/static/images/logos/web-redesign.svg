@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="reGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+  <rect x="28" y="32" width="200" height="192" rx="24" fill="url(#reGrad)"/>
+  <!-- Sync / reload circular arrows -->
+  <path d="M128 72 A56 56 0 1 1 76 148" fill="none" stroke="#ffffff" stroke-width="14" stroke-linecap="round"/>
+  <polygon points="120,52 144,72 120,92" fill="#c8f560"/>
+  <!-- Speed lightning bolt -->
+  <polygon points="136,108 116,138 132,138 120,168 152,130 136,130" fill="#c8f560"/>
+</svg>

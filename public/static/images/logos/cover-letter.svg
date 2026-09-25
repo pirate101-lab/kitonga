@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <rect x="36" y="24" width="184" height="208" rx="24" fill="#0369a1"/>
+  <polygon points="36,24 128,104 220,24" fill="#38bdf8" opacity="0.5"/>
+  <!-- Letter emerging from envelope -->
+  <rect x="54" y="72" width="148" height="140" rx="12" fill="#ffffff"/>
+  <rect x="72" y="92" width="112" height="12" rx="6" fill="#0284c7"/>
+  <rect x="72" y="116" width="112" height="8" rx="4" fill="#94a3b8"/>
+  <rect x="72" y="134" width="112" height="8" rx="4" fill="#94a3b8"/>
+  <rect x="72" y="152" width="74" height="8" rx="4" fill="#94a3b8"/>
+  <circle cx="164" cy="180" r="14" fill="#c8f560"/>
+</svg>

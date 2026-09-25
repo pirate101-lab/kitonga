@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="lfBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0369a1"/>
+      <stop offset="100%" stop-color="#0c4a6e"/>
+    </linearGradient>
+    <linearGradient id="posterImg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="50%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Badge -->
+  <rect x="22" y="22" width="212" height="212" rx="40" fill="url(#lfBg)"/>
+  <!-- Wide-Format Digital Press Chassis -->
+  <rect x="36" y="60" width="184" height="48" rx="14" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="52" y="72" width="152" height="20" rx="6" fill="#0f172a"/>
+  <!-- Output Feed Slot -->
+  <line x1="56" y1="102" x2="200" y2="102" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
+  <!-- Large-format poster rolling out -->
+  <path d="M60 102 L196 102 L188 200 L68 200 Z" fill="#ffffff" filter="drop-shadow(0 8px 12px rgba(0,0,0,0.3))"/>
+  <!-- Vibrant Graphic Artwork on Poster -->
+  <rect x="74" y="116" width="108" height="60" rx="6" fill="url(#posterImg)"/>
+  <circle cx="100" cy="136" r="12" fill="#fef08a" opacity="0.9"/>
+  <polygon points="120,166 148,136 172,166" fill="#ffffff" opacity="0.8"/>
+  <!-- Architectural Dimension Guidelines -->
+  <line x1="74" y1="186" x2="182" y2="186" stroke="#64748b" stroke-width="2" stroke-dasharray="3 3"/>
+  <!-- Rollers / Stand legs -->
+  <rect x="44" y="104" width="10" height="94" rx="4" fill="#334155"/>
+  <rect x="202" y="104" width="10" height="94" rx="4" fill="#334155"/>
+  <rect x="34" y="194" width="30" height="8" rx="4" fill="#1e293b"/>
+  <rect x="192" y="194" width="30" height="8" rx="4" fill="#1e293b"/>
+</svg>

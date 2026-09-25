@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="blkBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#78350f"/>
+      <stop offset="100%" stop-color="#9a3412"/>
+    </linearGradient>
+    <linearGradient id="sqInk" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c8f560"/>
+      <stop offset="50%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#e11d48"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Badge -->
+  <rect x="22" y="22" width="212" height="212" rx="40" fill="url(#blkBg)"/>
+  <!-- Multi-garment stack silhouette (batch production) -->
+  <path d="M58 176 L198 176 L192 192 L64 192 Z" fill="#d97706" opacity="0.5"/>
+  <path d="M54 158 L202 158 L196 174 L60 174 Z" fill="#f59e0b" opacity="0.7"/>
+  <!-- Screen Printing Wooden Frame -->
+  <rect x="44" y="46" width="168" height="120" rx="14" fill="#1e293b" stroke="#d97706" stroke-width="4"/>
+  <!-- Silk Screen Mesh -->
+  <rect x="58" y="60" width="140" height="92" rx="6" fill="#334155" opacity="0.85"/>
+  <!-- Squeegee Blade pulling wet vibrant ink -->
+  <rect x="48" y="88" width="160" height="16" rx="8" fill="#ca8a04"/>
+  <rect x="52" y="100" width="152" height="8" rx="3" fill="#475569"/>
+  <!-- Fresh Ink Stroke on Mesh -->
+  <path d="M62 108 L194 108 L188 144 L68 144 Z" fill="url(#sqInk)"/>
+  <!-- Batch / Team production badge -->
+  <rect x="64" y="198" width="128" height="28" rx="8" fill="#c8f560"/>
+  <text x="128" y="217" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle" letter-spacing="2">BULK UNIFORMS</text>
+</svg>

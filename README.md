@@ -18,7 +18,7 @@ Modern, minimal marketing site for KITONGA-ICT (Nairobi digital-services bureau;
 | anything else | `public/404.html` (real 404) |
 
 ## Content
-All content lives in `public/static/js/data.js`: `KITONGA` (phone `254715927114`, email, hours, partner), `CATEGORIES` (8 divisions with `tint`, `summary`, `detail`, `portals`), `SERVICES` (61 with price/turnaround), `PORTFOLIO` (12). `main.js` renders everything client-side.
+All content lives in `public/static/js/data.js`: `KITONGA` (phone `254715927114`, email, hours, partner), `CATEGORIES` (9 divisions with `tint`, `summary`, `detail`, `portals`, `logo`), `SERVICES` (67 with price/turnaround, `logo`), `PORTFOLIO` (12). `main.js` renders everything client-side.
 
 ## Media
 - `static/media/tee-loop.mp4` (0.66 MB) — cropped, denoised 16 s loop from the client's heat-press t-shirt video (text overlays cropped out).

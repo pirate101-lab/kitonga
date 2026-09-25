@@ -2,19 +2,50 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KITONGA-ICT — Digital services & print, done today</title>
-<meta name="description" content="Government, academic, business and print services in Nairobi. Order on WhatsApp — eCitizen, KRA, HELB, KUCCPS, CVs, certificates and custom t-shirts.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>KITONGA-ICT — Digital services &amp; print, done today</title>
+<meta name="description" content="eCitizen, KRA, HELB, KUCCPS, business registration, web design, T-shirt and certificate printing in Nairobi. Order on WhatsApp and collect the same day.">
 <meta name="theme-color" content="#f4f5f7">
-<meta property="og:title" content="KITONGA-ICT">
-<meta property="og:description" content="Digital services & print, done today.">
-<meta property="og:image" content="/static/images/portfolio/tee-peel.jpg">
+<meta property="og:title" content="KITONGA-ICT — Digital services &amp; print, done today">
+<meta property="og:description" content="Government portals, academic applications, web design and custom apparel handled by one team. Order on WhatsApp.">
+<meta property="og:image" content="/static/images/billboard-wide.jpg">
 <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css" rel="stylesheet">
 <link href="/static/css/site.css" rel="stylesheet">
+<script>
+  (function(){
+    var t = localStorage.getItem('kitonga_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+
+<!-- Local SEO schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "KITONGA-ICT",
+  "url": "https://kitonga-ict.co.ke",
+  "telephone": "+254715927114",
+  "email": "office@kitonga-ict.co.ke",
+  "image": "/static/images/billboard-wide.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Opp. Kapu Supermarket, next to Blessed Hotel",
+    "addressLocality": "Nairobi",
+    "addressCountry": "KE"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "07:30",
+    "closes": "19:00"
+  }]
+}
+</script>
 </head>
 <body>
 
@@ -24,18 +55,21 @@
     <div class="bar">
       <a class="brand" href="/" aria-label="KITONGA-ICT home">
         <img src="/static/brand/mark.svg" alt="" width="38" height="38">
-        <span>KITONGA</span><span class="tag">ICT</span>
+        <span class="brand-name">KITONGA</span><span class="tag">ICT</span>
       </a>
       <ul class="nav" id="nav">
+        <li><a href="/" style="font-weight:600;color:var(--ink)">Home</a></li>
         <li id="nav-services">
           <button type="button" aria-expanded="false" aria-controls="mega">Services <i class="fas fa-chevron-down"></i></button>
           <div class="mega" id="mega" role="menu"></div>
         </li>
-        <li><a href="/#studio">Print &amp; Apparel</a></li>
+        <li><a href="#studio">Print &amp; Apparel</a></li>
         <li><a href="/portfolio">Work</a></li>
-        <li><a href="/#contact">Contact</a></li>
+        <li><a href="#visit">About</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="head-actions">
+        <button class="theme-toggle" type="button" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
         <a class="btn btn-dark btn-sm" href="#" data-wa-general><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
         <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
       </div>
@@ -45,88 +79,96 @@
 
 <nav class="mnav" id="mnav" aria-label="Mobile">
   <div class="top">
-    <a class="brand" href="/"><img src="/static/brand/mark.svg" alt="" width="38" height="38"><span>KITONGA</span><span class="tag">ICT</span></a>
-    <button class="nav-toggle" id="nav-close" type="button" aria-label="Close menu"><i class="fas fa-xmark"></i></button>
+    <a class="brand" href="/"><img src="/static/brand/mark.svg" alt="" width="38" height="38"><span class="brand-name">KITONGA</span><span class="tag">ICT</span></a>
+    <div style="display:flex;align-items:center;gap:.5rem">
+      <button class="theme-toggle" type="button" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+      <button class="nav-toggle" id="nav-close" type="button" aria-label="Close menu"><i class="fas fa-xmark"></i></button>
+    </div>
   </div>
   <div class="list">
-    <a href="/services">All services <i class="fas fa-arrow-right"></i></a>
-    <a href="/#studio">Print &amp; Apparel <i class="fas fa-arrow-right"></i></a>
+    <a href="/">Home <i class="fas fa-arrow-right"></i></a>
+    <a href="/services">All 67 services <i class="fas fa-arrow-right"></i></a>
+    <a href="#studio">Print &amp; Apparel <i class="fas fa-arrow-right"></i></a>
     <a href="/portfolio">Work <i class="fas fa-arrow-right"></i></a>
-    <a href="/#contact">Contact <i class="fas fa-arrow-right"></i></a>
+    <a href="#visit">About &amp; Studio <i class="fas fa-arrow-right"></i></a>
+    <a href="#contact">Contact <i class="fas fa-arrow-right"></i></a>
   </div>
   <div class="cats" id="mnav-cats"></div>
   <div class="foot">
     <a class="btn btn-wa btn-lg" href="#" data-wa-general><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
-    <a class="btn btn-ghost" href="#" data-tel><i class="fas fa-phone"></i> <span data-k="phoneDisplay"></span></a>
+    <a class="btn btn-ghost" href="#" data-tel><i class="fas fa-phone"></i> <span data-k="phoneDisplay">0715 927 114</span></a>
   </div>
 </nav>
 <!--/HEADER-->
 
 <main id="main">
 
-  <!-- HERO -->
+  <!-- ============ HERO ============ -->
   <section class="hero" id="hero">
     <div class="wrap">
-      <div class="hero-copy rv">
-        <span class="pill-note"><span class="dot"></span> Open today <span class="k" data-k="hours"></span></span>
-        <h1 class="h-xl">Digital services &amp; print,<br>done today.</h1>
-        <p class="lead">Government portals, academic applications, business registration, design and custom apparel — handled by one team. Send a message, collect the result.</p>
-        <div class="hero-cta">
-          <a class="btn btn-dark btn-lg" href="#" data-wa-general><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
-          <a class="btn btn-ghost btn-lg" href="#services">Browse services <i class="fas fa-arrow-down"></i></a>
+      <div class="hero-grid rv">
+        <div class="hero-copy">
+          <p class="status" data-status>
+            <span class="status-dot"></span><span data-status-text>Mon – Sat · 7:30 – 19:00</span>
+          </p>
+          <h1 class="h-xl">Digital services &amp; print, <span class="hl">done today.</span></h1>
+          <p class="lead">Government portals, academic applications, business registration, design and custom apparel, all handled by one team. Send a message and collect the result.</p>
+          <div class="cta-row">
+            <a class="btn btn-dark btn-lg" href="#" data-wa-general><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+            <a class="btn btn-green btn-lg" href="#services">Browse services <i class="fas fa-arrow-down"></i></a>
+          </div>
+          <ul class="hero-meta">
+            <li><i class="fas fa-phone"></i><a href="tel:+254715927114">0715 927 114</a></li>
+            <li><i class="fas fa-location-dot"></i>Opp. Kapu Supermarket, next to Blessed Hotel</li>
+          </ul>
         </div>
+
+        <figure class="hero-media">
+          <div class="ph r-1-1">
+            <picture>
+              <source srcset="/static/images/billboard-square.webp" type="image/webp">
+              <img src="/static/images/billboard-square.jpg" alt="KITONGA-ICT billboard: web design, graphic design and printing services" fetchpriority="high">
+            </picture>
+            <figcaption class="hero-chip"><i class="fas fa-location-dot"></i> Visit us · Opp. Kapu Supermarket</figcaption>
+          </div>
+        </figure>
       </div>
 
-      <div class="bento stagger" id="bento">
-        <article class="tile tile-media" id="tile-tee">
-          <video src="/static/media/tee-loop.mp4" poster="/static/media/tee-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Heat-press vinyl t-shirt printing"></video>
-          <span class="label"><i class="fas fa-circle"></i> Live from the studio</span>
-          <button class="mute" type="button" data-toggle-video aria-label="Pause video"><i class="fas fa-pause"></i></button>
-        </article>
-        <article class="tile tile-lime">
-          <span class="ic"><i class="fas fa-layer-group"></i></span>
-          <div><div class="num"><span data-count="61">61</span></div><p class="cap">services across 8 divisions</p></div>
-        </article>
-        <article class="tile">
-          <span class="ic"><i class="fas fa-bolt"></i></span>
-          <div><div class="num">Same<sup>day</sup></div><p class="cap">turnaround on most requests</p></div>
-        </article>
-        <article class="tile tile-media" id="tile-cert">
-          <video src="/static/media/press-loop.mp4" poster="/static/media/press-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Certificate printing"></video>
-          <span class="label"><i class="fas fa-circle"></i> Certificate press</span>
-        </article>
-        <article class="tile tile-lilac">
-          <span class="ic"><i class="fas fa-shield-halved"></i></span>
-          <div><div class="num"><span data-count="6">6</span></div><p class="cap">official portals — eCitizen to KUCCPS</p></div>
-        </article>
-        <article class="tile tile-dark">
-          <span class="ic"><i class="fas fa-tag"></i></span>
-          <div><div class="num">KSh <span data-count="10">10</span></div><p class="cap">prints start here. Prices listed upfront.</p></div>
-        </article>
-        <article class="tile tile-butter tile-wide">
-          <span class="ic"><i class="fas fa-shirt"></i></span>
-          <div><div class="num">T-shirts</div><p class="cap">Vinyl, DTF and screen print. Single pieces to full teams.</p></div>
-          <a class="btn btn-dark btn-sm" href="#studio" style="align-self:flex-start">See apparel <i class="fas fa-arrow-right"></i></a>
-        </article>
-        <article class="tile tile-wide">
-          <span class="ic"><i class="fab fa-whatsapp"></i></span>
-          <div><div class="num">1 chat</div><p class="cap">Every order starts and ends on WhatsApp. No forms, no queues.</p></div>
-        </article>
+      <!-- Stats Grid -->
+      <div class="stats-grid stagger">
+        <div class="stat stat--lime">
+          <span class="stat-num">67</span>
+          <span class="stat-label">services across 9 divisions</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">Same-day</span>
+          <span class="stat-label">turnaround on most requests</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">6</span>
+          <span class="stat-label">official portals, from eCitizen to KUCCPS</span>
+        </div>
+        <div class="stat stat--dark">
+          <span class="stat-num">KSh 10</span>
+          <span class="stat-label">starting price for printing &amp; office work</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- PORTALS -->
-  <section class="strip" aria-label="Portals we work on">
+  <!-- ============ PORTALS & SERVICES MARQUEE (HORIZONTAL SCROLL) ============ -->
+  <section class="strip" aria-label="Portals and statutory services we handle daily">
     <div class="wrap">
       <div class="row rv">
         <span class="lab">Working on</span>
-        <div class="marquee"><div class="marquee-track" id="marquee"></div></div>
+        <div class="marquee">
+          <div class="marquee-track" id="marquee"></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- ============ DIVISIONS ============ -->
   <section class="section" id="services">
     <div class="wrap">
       <div class="section-head rv">
@@ -134,23 +176,47 @@
           <span class="eyebrow">Services</span>
           <h2 class="h-lg" style="margin-top:.75rem">Pick a division.<br>See every service and price.</h2>
         </div>
-        <a class="btn btn-ghost" href="/services">Full directory <i class="fas fa-arrow-right"></i></a>
+        <a class="btn btn-ghost" href="/services">Full directory (67) <i class="fas fa-arrow-right"></i></a>
       </div>
       <div class="cats stagger" id="cats"></div>
     </div>
   </section>
 
-  <!-- STUDIO -->
+  <!-- ============ MOST REQUESTED ============ -->
+  <section class="section" id="popular" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head rv">
+        <div>
+          <span class="eyebrow">Most requested</span>
+          <h2 class="h-lg" style="margin-top:.75rem">Order in one tap.</h2>
+          <p class="section-sub" style="color:var(--mute);margin-top:.35rem">Fixed prices. Tap Order and WhatsApp opens with your request already written.</p>
+        </div>
+      </div>
+      <ul class="popular-list stagger" id="popular-list"></ul>
+    </div>
+  </section>
+
+  <!-- ============ PRINT & APPAREL STUDIO ============ -->
   <section class="section" id="studio" style="padding-top:0">
     <div class="wrap">
       <div class="studio rv">
         <div class="studio-grid">
           <div class="studio-copy">
-            <span class="eyebrow">Print &amp; Apparel</span>
-            <h2 class="h-lg">Your name. Your number.<br><em>Pressed in minutes.</em></h2>
-            <p class="lead">Jerseys, team shirts, certificates, banners and booklets — designed in-house and produced with <span data-k="printPartner"></span>.</p>
-            <div class="chips" id="print-chips"></div>
-            <div><a class="btn btn-lime btn-lg" href="#" data-wa-print><i class="fab fa-whatsapp"></i> Order a print job</a></div>
+            <span class="eyebrow" style="color:rgba(255,255,255,.7)">Print &amp; Apparel</span>
+            <h2 class="h-lg">Your name. Your number.<br><em style="color:var(--lime);font-style:normal">Pressed in minutes.</em></h2>
+            <p class="lead" style="color:rgba(255,255,255,.75)">Jerseys, team shirts, certificates, banners and booklets — designed in-house and produced with <span data-k="printPartner">Brirop Digital Cyber</span>.</p>
+            <ul class="price-pills">
+              <li>Certificates, design &amp; print <b>KSh 100/pc</b></li>
+              <li>T-shirt printing <b>KSh 700</b></li>
+              <li>Bulk apparel (teams &amp; events) <b>KSh 550/pc</b></li>
+              <li>Event programme booklets <b>KSh 50/copy</b></li>
+              <li>Roll-up banner <b>KSh 7,500</b></li>
+              <li>A3 &amp; large-format posters <b>KSh 100/pc</b></li>
+            </ul>
+            <div class="print-actions">
+              <a class="btn btn-lime btn-lg" href="#" data-wa-print><i class="fab fa-whatsapp"></i> Get a print quote</a>
+              <span class="badge-dark"><i class="fas fa-clock"></i> Apparel in 1–2 days · certificates same day</span>
+            </div>
           </div>
           <div class="studio-media">
             <div class="card tall">
@@ -161,40 +227,44 @@
               <img src="/static/images/portfolio/cert-stack.jpg" alt="Printed certificates" loading="lazy">
               <span class="badge">Certificates</span>
             </div>
-            <div class="card sq stat">
-              <div class="num">1–2</div>
-              <p class="cap">days for custom apparel. Certificates same day.</p>
-            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHY -->
-  <section class="section" id="why" style="padding-top:0">
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="section" id="how" style="padding-top:0">
     <div class="wrap">
-      <div class="why stagger">
-        <div class="card">
-          <span class="ic" style="background:var(--sky)"><i class="fas fa-user-check"></i></span>
-          <h3>Verified, not guessed</h3>
-          <p>Every submission is checked against your original documents before it goes in.</p>
-        </div>
-        <div class="card">
-          <span class="ic" style="background:var(--butter)"><i class="fas fa-receipt"></i></span>
-          <h3>Prices upfront</h3>
-          <p>What you see on this page is what you pay. Portal fees are itemised separately.</p>
-        </div>
-        <div class="card">
-          <span class="ic" style="background:var(--mint)"><i class="fas fa-paper-plane"></i></span>
-          <h3>Results to your phone</h3>
-          <p>Slips, receipts and files are sent back on WhatsApp the moment they are ready.</p>
+      <div class="section-head rv">
+        <div>
+          <span class="eyebrow">How it works</span>
+          <h2 class="h-lg" style="margin-top:.75rem">Three steps. No queues.</h2>
         </div>
       </div>
+      <ol class="steps stagger">
+        <li class="step">
+          <span class="step-num">1</span>
+          <h3>Send on WhatsApp</h3>
+        </li>
+        <li class="step">
+          <span class="step-num">2</span>
+          <h3>We verify &amp; process</h3>
+        </li>
+        <li class="step">
+          <span class="step-num">3</span>
+          <h3>Results to your phone</h3>
+        </li>
+      </ol>
+      <ul class="trust-row rv">
+        <li><i class="fas fa-check-circle"></i> The price you see is what you pay</li>
+        <li><i class="fas fa-check-circle"></i> Portal fees itemised separately</li>
+        <li><i class="fas fa-check-circle"></i> Open Monday to Saturday</li>
+      </ul>
     </div>
   </section>
 
-  <!-- WORK -->
+  <!-- ============ RECENT WORK ============ -->
   <section class="section" id="work" style="padding-top:0">
     <div class="wrap">
       <div class="section-head rv">
@@ -208,80 +278,154 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section" id="contact" style="padding-top:0">
+  <!-- ============ VISIT THE STUDIO / ABOUT ============ -->
+  <section class="section" id="visit" style="padding-top:0">
     <div class="wrap">
-      <div class="cta rv">
-        <div class="cta-grid">
-          <div>
-            <h2 class="h-lg">Tell us what you need.<br>We'll reply on WhatsApp.</h2>
-            <p class="lead" style="margin-top:1rem">Pick a service, add a note, send. We confirm the documents required and the turnaround.</p>
-            <div class="contact">
-              <a href="#" data-wa-general><i class="fab fa-whatsapp"></i> <span data-k="phoneDisplay"></span></a>
-              <a href="#" data-mail><i class="fas fa-envelope"></i> <span data-k="email"></span></a>
-              <a><i class="fas fa-clock"></i> <span data-k="hours"></span></a>
+      <div class="visit-grid rv">
+        <div class="visit-media">
+          <picture>
+            <source srcset="/static/images/billboard-wide.webp" type="image/webp">
+            <img src="/static/images/billboard-wide.jpg" alt="KITONGA-ICT billboard near Kapu Supermarket" loading="lazy">
+          </picture>
+        </div>
+        <div class="visit-copy">
+          <span class="eyebrow">Visit the studio</span>
+          <h2 class="h-lg" style="margin-top:.75rem">Walk in, or just WhatsApp.</h2>
+          <p class="lead" style="margin-top:.75rem">KITONGA-ICT is a one-stop ICT hub for web design, graphic design, printing and online services. We're connecting the world through technology, starting with our neighbourhood.</p>
+          <ul class="info-list">
+            <li><span class="ico"><i class="fas fa-location-dot"></i></span><span>Kitonga Digital Cyber<small>Opp. Kapu Supermarket, next to Blessed Hotel</small></span></li>
+            <li><span class="ico"><i class="fas fa-clock"></i></span><span>Mon – Sat · 7:30 – 19:00<small>Closed Sundays</small></span></li>
+            <li><span class="ico"><i class="fas fa-phone"></i></span><a href="tel:+254715927114">0715 927 114</a></li>
+          </ul>
+          <div class="hero-cta" style="margin-top:1.5rem;justify-content:flex-start">
+            <a class="btn btn-dark" href="https://www.google.com/maps/search/?api=1&query=Kapu+Supermarket+Blessed+Hotel" target="_blank" rel="noopener"><i class="fas fa-map-location-dot"></i> Get directions</a>
+            <div class="socials" aria-label="Social media">
+              <a href="#" data-social="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" data-social="tiktok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+              <a href="#" data-social="facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             </div>
           </div>
-          <form class="form" id="request-form" novalidate>
-            <div class="row2">
-              <div class="field"><label for="rf-name">Your name</label><input id="rf-name" type="text" autocomplete="name" placeholder="Jane Wanjiru"></div>
-              <div class="field"><label for="rf-cat">Division</label><select id="rf-cat"></select></div>
-            </div>
-            <div class="field"><label for="rf-svc">Service</label><select id="rf-svc"></select></div>
-            <div class="field"><label for="rf-notes">Notes (optional)</label><textarea id="rf-notes" placeholder="Anything we should know — quantity, deadline, colours…"></textarea></div>
-            <p class="summary" id="req-summary"></p>
-            <button class="btn btn-wa btn-lg" type="submit"><i class="fab fa-whatsapp"></i> Send on WhatsApp</button>
-          </form>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ============ CONTACT ============ -->
+  <section class="section" id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta rv">
+        <div class="cta-grid">
+          <div>
+            <span class="eyebrow" style="color:var(--lime-ink)">Quick request</span>
+            <h2 class="h-lg" style="margin-top:.75rem">Tell us what you need.<br>We'll reply on WhatsApp.</h2>
+            <p class="lead" style="margin-top:.75rem">Pick a service, add a note and send. We'll confirm the documents required and the turnaround.</p>
+            <div class="contact" style="margin-top:1.5rem">
+              <a href="#" data-tel><i class="fas fa-phone"></i> <span data-k="phoneDisplay">0715 927 114</span></a>
+              <a href="#" data-mail><i class="fas fa-envelope"></i> <span data-k="email">office@kitonga-ict.co.ke</span></a>
+              <span style="font-weight:600;color:var(--lime-ink);display:inline-flex;align-items:center;gap:.65rem"><i class="fas fa-clock" style="width:34px;height:34px;border-radius:50%;background:rgba(15,17,19,.1);display:grid;place-items:center"></i> <span data-k="hours">Mon – Sat · 7:30 – 19:00</span></span>
+            </div>
+          </div>
+
+          <form class="form" id="request-form">
+            <div class="row2">
+              <div class="field">
+                <label for="rf-name">Your name</label>
+                <input id="rf-name" type="text" placeholder="e.g. Jane Wanjiru" required autocomplete="name">
+              </div>
+              <div class="field">
+                <label for="rf-cat">Division</label>
+                <select id="rf-cat"></select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="rf-svc">Service</label>
+              <select id="rf-svc"></select>
+            </div>
+            <div class="field">
+              <label for="rf-note">Notes (optional)</label>
+              <textarea id="rf-note" placeholder="Quantity, deadline, specific requirements..."></textarea>
+            </div>
+            <div class="summary" id="req-summary"></div>
+            <button class="btn btn-wa btn-lg" type="submit" style="width:100%"><i class="fab fa-whatsapp"></i> Send on WhatsApp</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
-<!--FOOTER-->
+<!-- ============ FOOTER ============ -->
 <footer class="site-footer">
   <div class="wrap">
     <div class="foot-grid">
       <div class="brand-col">
-        <a class="brand" href="/"><img src="/static/brand/mark.svg" alt="" width="38" height="38"><span>KITONGA</span><span class="tag">ICT</span></a>
-        <p data-k="tagline"></p>
+        <a class="brand" href="/" aria-label="KITONGA-ICT home">
+          <img src="/static/brand/mark.svg" alt="" width="38" height="38">
+          <span class="brand-name">KITONGA</span><span class="tag">ICT</span>
+        </a>
+        <p>Digital services &amp; print, done today.</p>
+        <div class="socials" style="margin-top:1.25rem">
+          <a href="#" data-social="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" data-social="tiktok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="#" data-social="facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
       </div>
       <div>
-        <h4>Services</h4>
+        <h4>Divisions</h4>
         <div class="links" id="foot-cats"></div>
       </div>
       <div>
         <h4>Company</h4>
         <div class="links">
-          <a href="/services">Full directory</a>
+          <a href="/">Home</a>
+          <a href="/services">Full Directory</a>
           <a href="/portfolio">Work</a>
-          <a href="/#studio">Print &amp; Apparel</a>
-          <a href="/#contact">Contact</a>
+          <a href="#visit">About</a>
+          <a href="#contact">Contact</a>
         </div>
       </div>
       <div>
         <h4>Reach us</h4>
         <div class="links">
-          <a href="#" data-tel data-k="phoneDisplay"></a>
-          <a href="#" data-mail data-k="email"></a>
-          <a data-k="hours"></a>
+          <a href="#" data-tel data-k="phoneDisplay">0715 927 114</a>
+          <a href="#" data-mail data-k="email">office@kitonga-ict.co.ke</a>
+          <span style="color:var(--mute)">Opp. Kapu Supermarket, next to Blessed Hotel</span>
+          <span data-k="hours" style="color:var(--mute)">Mon – Sat · 7:30 – 19:00</span>
         </div>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© <span data-year></span> KITONGA-ICT · Print partner: <span data-k="printPartner"></span></span>
-      <div class="socials">
-        <a href="#" data-social="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" data-social="tiktok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-        <a href="#" data-social="facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-      </div>
+      <span>© <span data-year>2026</span> KITONGA-ICT · Print partner: <span data-k="printPartner">Brirop Digital Cyber</span></span>
+      <a href="#main" style="color:var(--mute)">Back to top ↑</a>
     </div>
   </div>
 </footer>
 
-<a class="wa-fab" href="#" data-wa-general aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-<!--/FOOTER-->
+<!-- Mobile sticky bar (WhatsApp + Call) -->
+<div class="mobile-bar" data-mobile-bar>
+  <a class="btn btn-wa" href="#" data-wa-general><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  <a class="btn btn-ghost" href="#" data-tel><i class="fas fa-phone"></i> Call</a>
+</div>
+
+<!-- Static floating WhatsApp button with official WhatsApp SVG -->
+<a class="wa-btn-floating" href="https://wa.me/254715927114" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" data-wa-general>
+  <svg viewBox="0 0 32 32" aria-hidden="true">
+    <path d="M16 2a13.9 13.9 0 0 0-12 20.9L2 30l7.3-1.9A13.9 13.9 0 1 0 16 2zm0 25.5a11.6 11.6 0 0 1-5.9-1.6l-.4-.3-4.4 1.2 1.2-4.3-.3-.5A11.6 11.6 0 1 1 16 27.5zm6.4-8.7c-.3-.2-2-.9-2.3-1s-.6-.2-.8.2-.9 1.1-1.1 1.3-.4.3-.7.1a9.2 9.2 0 0 1-2.7-1.7 10.1 10.1 0 0 1-1.9-2.3c-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5a.6.6 0 0 0 0-.6c-.1-.2-.8-2-1.1-2.7-.3-.7-.6-.6-.8-.6h-.7a1.4 1.4 0 0 0-1 .5 4.3 4.3 0 0 0-1.3 3.2 7.5 7.5 0 0 0 1.6 4 17.2 17.2 0 0 0 6.6 5.8c3.9 1.7 3.9 1.1 4.6 1.1.7 0 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.7-.5z"/>
+  </svg>
+</a>
+
+<!-- Lightbox Modal -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Work Preview">
+  <figure>
+    <img src="" alt="" id="lb-img">
+    <figcaption id="lb-cap">
+      <b id="lb-title"></b>
+      <small id="lb-sub"></small>
+      <a class="btn btn-lime btn-sm" id="lb-wa" href="#" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Enquire about this</a>
+    </figcaption>
+  </figure>
+  <button class="lb-btn lb-close" id="lb-close" aria-label="Close preview"><i class="fas fa-xmark"></i></button>
+</div>
 
 <script src="/static/js/data.js"></script>
 <script src="/static/js/main.js"></script>
