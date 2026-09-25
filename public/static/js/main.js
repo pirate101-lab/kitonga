@@ -410,6 +410,13 @@
     const h = location.hash.slice(1); if (catBy(h)) cur = h;
     render();
     if (cur !== 'all') setTimeout(() => window.scrollTo({ top: 0 }), 0);
+    window.addEventListener('hashchange', () => {
+      const nh = location.hash.slice(1);
+      cur = (catBy(nh) || nh === 'all') ? (nh || 'all') : 'all';
+      render();
+      const b = $(`.dir-tab[data-cat="${cur}"]`, rail);
+      if (b) b.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+    });
   }
 
   /* ---------- portfolio page ---------- */
